@@ -16,7 +16,7 @@ import java.util.UUID
 class Usuario(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     val id: UUID? = null,
 
 
@@ -28,7 +28,7 @@ class Usuario(
     var email: String,
 
 
-    @Column(columnDefinition = "jsonb")
+    @Column(columnDefinition = "TEXT")
     var googleTokenData: String? = null,
 
 

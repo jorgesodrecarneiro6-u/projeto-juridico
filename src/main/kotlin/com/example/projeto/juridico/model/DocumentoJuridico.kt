@@ -1,6 +1,7 @@
 package com.example.projeto.juridico.model
 
 import jakarta.persistence.Column
+import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -12,11 +13,11 @@ import java.time.LocalDateTime
 import java.util.UUID
 
 //Entidade de documentos (Petiçãoe, Recursos, etc)
-
+@Entity
 class DocumentoJuridico(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     val id: UUID? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,5 +42,4 @@ class DocumentoJuridico(
 
     @CreationTimestamp
     val criadoEm: LocalDateTime = LocalDateTime.now()
-
 )

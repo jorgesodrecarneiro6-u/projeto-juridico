@@ -1,6 +1,7 @@
 package com.example.projeto.juridico.model
 
 import jakarta.persistence.Column
+import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
 import jakarta.persistence.FetchType
@@ -9,15 +10,14 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
-import org.h2.engine.Role
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 import java.util.UUID
-
+@Entity
 class ChatMensagem(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     val id: UUID? = null,
 
 
@@ -32,7 +32,7 @@ class ChatMensagem(
 
     // Enum: USER, ASSISTANT
     @Enumerated(EnumType.STRING)
-    val remetente: Role,
+    val remetente: com.example.projeto.juridico.model.Role,
 
 
     @Column(columnDefinition = "text")

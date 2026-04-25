@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.util.UUID
 
 interface ChatMensagemRepository: JpaRepository<ChatMensagem, UUID> {
+
+    fun findBySessaoIdOrderByEnviadoEmAsc(sessaoId: UUID): List<ChatMensagem>
 }
