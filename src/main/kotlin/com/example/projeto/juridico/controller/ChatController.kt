@@ -14,10 +14,8 @@ class ChatController(private val chatService: ChatService) {
 
     @PostMapping("/enviar")
     fun enviarMensagem(@RequestBody request: ChatRequest): ResponseEntity<String> {
-        val resposta = chatService.processarChat(
-            usuarioId = request.usuarioId,
-            mensagem = request.mensagem,
-            sessaoId = request.sessaoId
+        val resposta = chatService.processarChat(usuarioId = request.usuarioId,
+            mensagem = request.mensagem, sessaoId = request.sessaoId
         )
         return ResponseEntity.ok(resposta)
     }
