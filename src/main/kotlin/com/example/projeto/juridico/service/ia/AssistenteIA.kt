@@ -19,7 +19,8 @@ class AssistenteIA(
     UTILIZANDO O FRAMEWORK KOOG
     */
 
-    fun assistenteJuridicoIA(nomeUsuario: String, mensagem: String, sessaoId: UUID): String = runBlocking {
+    fun assistenteJuridicoIA(
+        nomeUsuario: String, mensagem: String, sessaoId: UUID): String = runBlocking {
 
 
         val key = System.getenv("CHAVEGOOGLE") ?: error("Chave não encontrada")
@@ -31,7 +32,8 @@ class AssistenteIA(
             systemPrompt = """
                 Você é um Assistente Jurídico/Administrativo.
                 Trate a pessoa como Dr. ou Dra. $nomeUsuario (identifique o gênero pelo nome).
-                Inicie perguntando: "Olá, $nomeUsuario, como posso ajudar hoje? Você busca auxílio Jurídico ou Administrativo?"
+                Inicie a primeira conversa com: "Olá, $nomeUsuario, como posso ajudar hoje? Você busca auxílio Jurídico ou Administrativo?"
+                No decorrer da conversa será somente Dr. ou Dra. $nomeUsuario. (identifique o gênero pelo nome).
     
                 REGRAS:
                 1. Pedido Jurídico: Use linguagem forense (CPC/CPP).
