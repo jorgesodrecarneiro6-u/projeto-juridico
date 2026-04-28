@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 import java.util.UUID
+
 @Entity
 class ChatMensagem(
 
@@ -27,7 +28,8 @@ class ChatMensagem(
 
 
     // Identificador único para cada conversa
-    val sessaoId: UUID,
+    @Column(name = "sessao_id", nullable = false, updatable = false)
+    val sessaoId: UUID? = null,
 
 
     // Enum: USER, ASSISTANT

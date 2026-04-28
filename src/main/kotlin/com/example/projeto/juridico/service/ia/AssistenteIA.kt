@@ -15,7 +15,8 @@ class AssistenteIA(
     private val usuarioRepository: UsuarioRepository
 ) {
     /*Lógica do assistente Jurídico IA: Responder a mensagem do usuário utilizando a class ChatMensagem
-    nos campos mensagem e sessaoId(verificar o histórico da conversa)
+    nos campos mensagem e sessaoId(verificar o histórico da conversa).
+    UTILIZANDO O FRAMEWORK KOOG
     */
 
     fun assistenteJuridicoIA(nomeUsuario: String, mensagem: String, sessaoId: UUID): String = runBlocking {
@@ -29,7 +30,7 @@ class AssistenteIA(
             llmModel = GoogleModels.Gemini2_5Flash,
             systemPrompt = """
                 Você é um Assistente Jurídico/Administrativo.
-                Trate a pessoa como Sr. ou Sra. $nomeUsuario (identifique o gênero pelo nome).
+                Trate a pessoa como Dr. ou Dra. $nomeUsuario (identifique o gênero pelo nome).
                 Inicie perguntando: "Olá, $nomeUsuario, como posso ajudar hoje? Você busca auxílio Jurídico ou Administrativo?"
     
                 REGRAS:
